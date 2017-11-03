@@ -9,6 +9,26 @@
  * @author molin
  */
 public class Ortogonal extends Tanque {
-    
-    
+    //variables de instancia
+    double apotema;
+    /**
+    * @param apotema
+    */
+    public Ortogonal (double apotema) {
+        //super();
+        this.apotema=apotema;
+    }
+    /**
+    * @param x
+    * @param y
+    * @param perimetro
+    */
+    public double calcularVol(double x, double y, double perimetro){
+    }    
+    /**
+    * @return
+    */
+    public double getApo(){
+        return apotema;
+    }
 }
