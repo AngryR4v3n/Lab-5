@@ -5,8 +5,9 @@
  */
 
 /**
- *
- * @author molin
+ * @author Francisco Molina, carne 17050
+ * @author Estefania Barrio, carne 17927
+ * @version 02/11/2017
  */
 public class Valvula {
     
@@ -23,6 +24,34 @@ public class Valvula {
         this.profundidad=profundidad;
         this.municipio=municipio;
     }
-    
-    public 
+    /**
+    * @return
+    */
+    public double getRadio(){
+        return radio;
+    }
+    /**
+    * @return
+    */
+    public boolean getAbierto(){
+        return abierto;
+    }
+    /**
+    * @return
+    */
+    public String getIdValvula(){
+        return idValvula;
+    }
+    /**
+    * @return
+    */
+    public double profundidad(){
+        return profundidad;
+    }
+    /**
+    * @return
+    */
+    public String getMunicipio(){
+        return municipio;
+    }
 }
