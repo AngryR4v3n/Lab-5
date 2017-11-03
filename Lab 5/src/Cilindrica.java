@@ -11,9 +11,16 @@
 public class Cilindrica extends Tanque {
     //variables de instancia
     double radio;
-    Cilindrica(double radio) {
+    /**
+    * @param radio
+    */
+    public Cilindrica(double radio) {
         this.radio=radio;
     }
+    /**
+    * @param radio
+    * @param altura
+    */
     public double calcularVol(double radio, double altura) {
         double pi= Math.PI;
         double volumen=pi*radio*radio*altura;
