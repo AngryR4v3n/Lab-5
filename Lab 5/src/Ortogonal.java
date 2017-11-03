@@ -19,11 +19,13 @@ public class Ortogonal extends Tanque {
         this.apotema=apotema;
     }
     /**
-    * @param x
-    * @param y
+    * @param altura
+    * @param apotema
     * @param perimetro
     */
-    public double calcularVol(double x, double y, double perimetro){
+    public double calcularVol(double apotema, double altura, double perimetro){
+        double volumen=((perimetro*apotema)/2)*altura;
+        return volumen;
     }    
     /**
     * @return
