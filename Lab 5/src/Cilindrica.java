@@ -5,8 +5,9 @@
  */
 
 /**
- *
- * @author molin
+ * @author Francisco Molina, carne 17050
+ * @author Estefania Barrio, carne 17927
+ * @version 02/11/2017
  */
 public class Cilindrica extends Tanque {
     //variables de instancia
