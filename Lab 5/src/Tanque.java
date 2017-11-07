@@ -9,16 +9,20 @@
  * @author Estefania Barrio, carne 17927
  * @version 02/11/2017
  */
-public class Tanque {
-    
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Embedded;
+@Entity
+public abstract class Tanque {
+    @Embedded Valvula[] listaV;
     protected double altura;
-    protected Valvula[] listaV;
+    //protected Valvula[] listaV;
     protected double porcentaje;
     protected String idTanque;
     protected double volumenDisp;
     protected int index;
+    protected String municipio;
     
-    public Tanque(int altura, double porcentaje, String idTanque, double volumenDisp, int index){
+    public Tanque(double altura, double porcentaje, String idTanque, double volumenDisp, int index){
         this.altura=altura;
         listaV = new Valvula[10];
         this.porcentaje= porcentaje;
@@ -36,9 +40,30 @@ public class Tanque {
     public double getVolumen(){
         return volumenDisp;
     }
-    public void crearValvula(int x){
-        listaV[x]
-        
+    public String getId(){
+        return idTanque;
     }
+    public String getMuni(){
+        return municipio;
+    }
+    public Valvula buscarVal(String val){
+        Valvula objTemp=null;
+        for(int x=0; x<=10;x++){
+            if(listaV[x].getIdValvula().equals(val)){
+                objTemp=listaV[x];
+    }
+        }
+        return objTemp;
+    }
+    public void crearValvula(int x, double radio,boolean abierto,String idValvula, double profundidad, String municipio, double vol){
+        listaV[x]= new Valvula(radio,abierto,idValvula,profundidad,municipio,vol);    
+    }
+    public double metrosCubicosTotales(int y){
+        double sumatoria=0;
+        for(int x=0; x<=y;x++){
+            sumatoria=listaV[x].getVol()+sumatoria;
+        }
+        return sumatoria;
+    } 
     
 }

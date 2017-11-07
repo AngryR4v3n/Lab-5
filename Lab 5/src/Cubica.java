@@ -9,20 +9,21 @@
  * @author Estefania Barrio, carne 17927
  * @version 02/11/2017
  */
+import org.mongodb.morphia.annotations.Entity;
+@Entity
 public class Cubica extends Tanque {
     //variables de instancia
-    double lado;
     /**
     * @param lado
     */
-    public Cubica(double lado){
-        this.lado=lado;
+    public Cubica(double altura, double porcentaje, String idTanque, double volumenDisp, int index){
+        super(altura, porcentaje, idTanque, volumenDisp, index);
     }
     /**
     * @param lado
     * @return
     */
-    public double calcularVol(double lado){
+    public double calcularVol(double lado,double y, double z){
         double volumen=lado*lado*lado;
         return volumen;
     }
@@ -30,6 +31,6 @@ public class Cubica extends Tanque {
     * @return
     */
     public double getLado(){
-        return lado;
+        return altura;
     }    
 }

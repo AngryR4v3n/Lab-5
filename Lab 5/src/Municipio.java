@@ -9,6 +9,8 @@
  * @author Estefania Barrio, carne 17927
  * @version 02/11/2017
  */
+import org.mongodb.morphia.annotations.Entity;
+@Entity
 public class Municipio {
     public String nombre;
     public int numHabitante;
