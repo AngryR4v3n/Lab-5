@@ -11,26 +11,16 @@
  */
 public class Valvula {
     
-    private double radio;
     private boolean abierto;
     private String idValvula;
-    private double profundidad;
     private String municipio;
     private double volumen;
     
-    public Valvula(double radio, boolean abierto, String idValvula, double profundidad, String municipio, double volumen){
-        this.radio=radio;
+    public Valvula(boolean abierto, String idValvula, String municipio, double volumen){
         this.abierto=abierto;
         this.idValvula=idValvula;
-        this.profundidad=profundidad;
         this.municipio=municipio;
         this.volumen=volumen;
-    }
-    /**
-    * @return
-    */
-    public double getRadio(){
-        return radio;
     }
     /**
     * @return
@@ -44,24 +34,15 @@ public class Valvula {
     public void setCerrado(){
         abierto=false;
     }
-    public void volumenCalc(){
-        volumen=radio*profundidad;
-    }
+    
     public double getVol(){
         return volumen;
     }
-    
     /**
     * @return
     */
     public String getIdValvula(){
         return idValvula;
-    }
-    /**
-    * @return
-    */
-    public double profundidad(){
-        return profundidad;
     }
     /**
     * @return

@@ -55,8 +55,17 @@ public abstract class Tanque {
         }
         return objTemp;
     }
-    public void crearValvula(int x, double radio,boolean abierto,String idValvula, double profundidad, String municipio, double vol){
-        listaV[x]= new Valvula(radio,abierto,idValvula,profundidad,municipio,vol);    
+    public double buscarValMuni(String muni){
+        double suma=0;
+        for(int x=0; x<=10; x++){
+            if(listaV[x].getMunicipio().equals(muni)){
+                suma=listaV[x].getVol()+suma;
+            }
+        }
+        return suma;
+    }
+    public void crearValvula(int x,boolean abierto,String idValvula,String municipio, double vol){
+        listaV[x]= new Valvula(abierto,idValvula,municipio,vol);    
     }
     public double metrosCubicosTotales(int y){
         double sumatoria=0;

@@ -71,8 +71,8 @@ public class Control {
         }
         return report;
     }
-    public void crearValvula(Tanque elTanque,int index,double radio,boolean abierto,String idValvula, double profundidad, String municipio, double vol){
-        elTanque.crearValvula(index,radio,abierto,idValvula,profundidad,municipio,vol);
+    public void crearValvula(String nombreT,int index,boolean abierto,String idValvula, String municipio, double vol){
+        this.busqueda(nombreT).crearValvula(index,abierto,idValvula,municipio,vol);
     }
     public boolean alerta(Tanque elTanque,double volumenRestante){
         boolean alerta1=false;
@@ -88,7 +88,14 @@ public class Control {
         }
         return alerta2;
     }
-  
+        public double metrosRegion(String muni){
+            double suma=0;
+            for(int x=0;x<=10;x++){
+             suma=listaTanque[x].buscarValMuni(muni)+suma;
+            }
+            return suma;
+        }
+        
             
         }
 
