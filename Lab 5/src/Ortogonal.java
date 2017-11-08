@@ -18,25 +18,11 @@ public class Ortogonal extends Tanque {
     /**
     * @param apotema
     */
-    public Ortogonal (double altura, double porcentaje, String idTanque, double volumenDisp, int index,double apotema,double perimetro) {
-        super(altura, porcentaje, idTanque, volumenDisp, index);
+    public Ortogonal (double altura, double porcentaje, String idTanque,double apotema,double perimetro) {
+        super(altura, porcentaje, idTanque);
+        this.volOr=((perimetro*apotema)/2)*altura;
+        this.volumenDisp=volOr;
         this.apotema=apotema;
         this.perimetro=perimetro;
-    }
-    /**
-    * @param altura
-    * @param apotema
-    * @param perimetro
-    */
-    @Override
-    public double calcularVol(double apotema, double altura, double perimetro){
-        double volumen=((perimetro*apotema)/2)*altura;
-        return volumen;
-    }    
-    /**
-    * @return
-    */
-    public double getApo(){
-        return apotema;
     }
 }

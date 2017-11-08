@@ -16,21 +16,10 @@ public class Cubica extends Tanque {
     /**
     * @param lado
     */
-    public Cubica(double altura, double porcentaje, String idTanque, double volumenDisp, int index){
-        super(altura, porcentaje, idTanque, volumenDisp, index);
+    public Cubica(double altura, double porcentaje, String idTanque){
+        super(altura, porcentaje, idTanque);
+        this.volOr=altura*altura*altura;
+        this.volumenDisp=volOr;
     }
-    /**
-    * @param lado
-    * @return
-    */
-    public double calcularVol(double lado,double y, double z){
-        double volumen=lado*lado*lado;
-        return volumen;
-    }
-    /**
-    * @return
-    */
-    public double getLado(){
-        return altura;
-    }    
+   
 }

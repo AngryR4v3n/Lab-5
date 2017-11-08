@@ -9,33 +9,33 @@
  * @author Estefania Barrio, carne 17927
  * @version 02/11/2017
  */
+import java.util.ArrayList;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Embedded;
 @Entity
 public abstract class Tanque {
-    @Embedded Valvula[] listaV;
+    //@Embedded Valvula[] listaV;
     protected double altura;
-    //protected Valvula[] listaV;
+    ArrayList<Valvula> valvulas = new ArrayList();
     protected double porcentaje;
     protected String idTanque;
     protected double volumenDisp;
     protected int index;
-    protected String municipio;
+    protected double volOr;
     
-    public Tanque(double altura, double porcentaje, String idTanque, double volumenDisp, int index){
+    public Tanque(double altura, double porcentaje, String idTanque){
         this.altura=altura;
-        listaV = new Valvula[10];
+        valvulas = new ArrayList<Valvula>();
         this.porcentaje= porcentaje;
         this.idTanque=idTanque;
         this.volumenDisp=volumenDisp;
-        this.index=index;
+        this.volOr=volOr;
     }
-    public abstract double calcularVol(double x, double y, double z);
     public double getAltura(){
         return altura;
     }
     public void setVolumen(double volume){
-        this.volumenDisp=volume;
+        this.volOr=volume;
     }
     public double getVolumen(){
         return volumenDisp;
@@ -43,36 +43,52 @@ public abstract class Tanque {
     public String getId(){
         return idTanque;
     }
-    public String getMuni(){
-        return municipio;
+    public void setPorcentaje(double por){
+        this.porcentaje=por;
     }
     public Valvula buscarVal(String val){
         Valvula objTemp=null;
-        for(int x=0; x<=10;x++){
-            if(listaV[x].getIdValvula().equals(val)){
-                objTemp=listaV[x];
+        for(Valvula c: valvulas){
+            if(c.getIdValvula().equals(val)){
+                objTemp=c;
     }
         }
         return objTemp;
     }
     public double buscarValMuni(String muni){
         double suma=0;
-        for(int x=0; x<=10; x++){
-            if(listaV[x].getMunicipio().equals(muni)){
-                suma=listaV[x].getVol()+suma;
+        for(Valvula c: valvulas){
+            if(c.getMunicipio().equals(muni)){
+                suma=c.getVol()+suma;
             }
         }
         return suma;
     }
-    public void crearValvula(int x,boolean abierto,String idValvula,String municipio, double vol){
-        listaV[x]= new Valvula(abierto,idValvula,municipio,vol);    
+    public void crearValvula(boolean abierto,String idValvula,String municipio, double vol){
+       Valvula x= new Valvula(abierto,idValvula,municipio,vol); 
+       valvulas.add(x);
+    }
+    public void seteoCerrar(){
+        for(Valvula x: valvulas){
+            x.setCerrado();
+        }
+    }
+    public void quitarVol(double x){
+        this.volumenDisp=this.volOr-x;
     }
     public double metrosCubicosTotales(int y){
         double sumatoria=0;
-        for(int x=0; x<=y;x++){
-            sumatoria=listaV[x].getVol()+sumatoria;
+        for(Valvula c: valvulas){
+            sumatoria=c.getVol()+sumatoria;
         }
         return sumatoria;
-    } 
+    }
+    public String printTodo(){
+        String msj="";
+        for(Valvula c: valvulas){
+            msj="Nombre: "+c.getIdValvula()+" Volumen: "+c.getVol()+" Galones/h "+"Estado: "+c.getAbierto()+"\n";
+        }
+        return msj;
+    }
     
 }
