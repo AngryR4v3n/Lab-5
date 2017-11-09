@@ -8,8 +8,9 @@ import javax.swing.JOptionPane;
  */
 
 /**
- *
- * @author molin
+ * @author Francisco Molina, carne 17050
+ * @author Estefania Barrio, carne 17927
+ * @version 08/11/2017
  */
 public class GUIControl extends javax.swing.JFrame {
 
