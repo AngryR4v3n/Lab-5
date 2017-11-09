@@ -7,7 +7,7 @@
 /**
  * @author Francisco Molina, carne 17050
  * @author Estefania Barrio, carne 17927
- * @version 08/11/2017
+ * @version 02/11/2017
  */
 import org.mongodb.morphia.annotations.Entity;
 @Entity
@@ -23,5 +23,5 @@ public class Cilindrica extends Tanque {
         this.volOr=3.14*altura*radio*radio;
         this.volumenDisp=volOr;
     }
- 
+    public Cilindrica(){}
 }

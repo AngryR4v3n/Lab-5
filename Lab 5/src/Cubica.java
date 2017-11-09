@@ -7,7 +7,7 @@
 /**
  * @author Francisco Molina, carne 17050
  * @author Estefania Barrio, carne 17927
- * @version 08/11/2017
+ * @version 02/11/2017
  */
 import org.mongodb.morphia.annotations.Entity;
 @Entity
@@ -21,5 +21,5 @@ public class Cubica extends Tanque {
         this.volOr=altura*altura*altura;
         this.volumenDisp=volOr;
     }
-   
+    public Cubica(){}
 }
