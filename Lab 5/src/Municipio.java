@@ -14,15 +14,23 @@ import org.mongodb.morphia.annotations.Entity;
 public class Municipio {
     public String nombre;
     public int numHabitante;
-    
+    /**
+    * @param nombre
+    * @param numHabitante
+    */
     public Municipio(String nombre, int numHabitante){
         this.nombre=nombre;
         this.numHabitante=numHabitante;
     }
-    
+    /**
+    * @return
+    */    
     public String getNombre(){
         return nombre;
     }
+    /**
+    * @return
+    */ 
     public int getNum(){
         return numHabitante;
     }
