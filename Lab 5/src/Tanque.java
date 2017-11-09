@@ -7,7 +7,7 @@
 /**
  * @author Francisco Molina, carne 17050
  * @author Estefania Barrio, carne 17927
- * @version 02/11/2017
+ * @version 08/11/2017
  */
 import java.util.ArrayList;
 import org.mongodb.morphia.annotations.Entity;
@@ -22,7 +22,11 @@ public abstract class Tanque {
     protected double volumenDisp;
     protected int index;
     protected double volOr;
-    
+    /**
+    * @param altura
+    * @param porcentaje
+    * @param idTanque
+    */
     public Tanque(double altura, double porcentaje, String idTanque){
         this.altura=altura;
         valvulas = new ArrayList<Valvula>();
@@ -31,21 +35,40 @@ public abstract class Tanque {
         this.volumenDisp=volumenDisp;
         this.volOr=volOr;
     }
+    /**
+    * @return
+    */
     public double getAltura(){
         return altura;
     }
+    /**
+    * @param volumen
+    */
     public void setVolumen(double volume){
         this.volOr=volume;
     }
+    /**
+    * @return
+    */
     public double getVolumen(){
         return volumenDisp;
     }
+    /**
+    * @return
+    */
     public String getId(){
         return idTanque;
     }
+    /**
+    * @param por
+    */
     public void setPorcentaje(double por){
         this.porcentaje=por;
     }
+    /**
+    * @param val
+    * @return
+    */
     public Valvula buscarVal(String val){
         Valvula objTemp=null;
         for(Valvula c: valvulas){
@@ -55,6 +78,10 @@ public abstract class Tanque {
         }
         return objTemp;
     }
+    /**
+    * @param muni
+    * @return
+    */
     public double buscarValMuni(String muni){
         double suma=0;
         for(Valvula c: valvulas){
@@ -64,6 +91,12 @@ public abstract class Tanque {
         }
         return suma;
     }
+    /**
+    * @param abierto
+    * @param idValvula
+    * @param municipio
+    * @param vol
+    */
     public void crearValvula(boolean abierto,String idValvula,String municipio, double vol){
        Valvula x= new Valvula(abierto,idValvula,municipio,vol); 
        valvulas.add(x);
@@ -73,9 +106,16 @@ public abstract class Tanque {
             x.setCerrado();
         }
     }
+    /**
+    * @param x
+    */
     public void quitarVol(double x){
         this.volumenDisp=this.volOr-x;
     }
+    /**
+    * @param y
+    * @return
+    */
     public double metrosCubicosTotales(int y){
         double sumatoria=0;
         for(Valvula c: valvulas){
@@ -83,6 +123,9 @@ public abstract class Tanque {
         }
         return sumatoria;
     }
+    /**
+    * @return
+    */
     public String printTodo(){
         String msj="";
         for(Valvula c: valvulas){
